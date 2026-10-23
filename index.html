@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Event Registration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Campus Events</h1>
+    <button id="theme-btn" type="button">Dark theme</button>
+  </header>
+
+  <main>
+    <section id="events" aria-labelledby="events-title">
+      <h2 id="events-title">Choose an event</h2>
+      <div class="cards" id="event-cards"></div>
+      <p id="selected-label" class="hint">No event selected yet.</p>
+    </section>
+
+    <section id="register" aria-labelledby="register-title">
+      <h2 id="register-title">Registration</h2>
+      <form id="reg-form" novalidate>
+        <div class="field">
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" autocomplete="name">
+          <small class="counter"><span id="name-count">0</span> characters</small>
+          <small class="error-msg" id="name-error"></small>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email">
+          <small class="error-msg" id="email-error"></small>
+        </div>
+
+        <div class="field">
+          <label for="group">Student group</label>
+          <select id="group" name="group">
+            <option value="">Select your group</option>
+            <option>IT-DS2501</option>
+            <option>IT-DS2502</option>
+            <option>IT-DS2503</option>
+            <option>IT-DS2504</option>
+          </select>
+          <small class="error-msg" id="group-error"></small>
+        </div>
+
+        <div class="field">
+          <label for="event-input">Selected event</label>
+          <input type="text" id="event-input" name="event" readonly placeholder="Pick an event above">
+          <small class="error-msg" id="event-error"></small>
+        </div>
+
+        <div class="field check">
+          <label><input type="checkbox" id="agree"> I agree to the event rules</label>
+          <small class="error-msg" id="agree-error"></small>
+        </div>
+
+        <button type="submit" class="primary">Register</button>
+      </form>
+    </section>
+
+    <section id="result" aria-labelledby="result-title" aria-live="polite">
+      <h2 id="result-title">Registration result</h2>
+      <p id="confirmation" class="confirmation" hidden></p>
+      <ul id="registrations"></ul>
+    </section>
+
+    <section id="guests" aria-labelledby="guests-title">
+      <h2 id="guests-title">Guest directory</h2>
+      <button id="load-guests" type="button" class="primary">Load Guests</button>
+      <p id="guest-status" class="hint" aria-live="polite"></p>
+      <div id="guest-list" class="cards"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
